@@ -1,3 +1,6 @@
+# Completed Assignment: run.py
+# Dependencies: (local) sql_api.py
+
 # Introduction to SQL
 
 The basics of Structured Query Language, a relatively simple query language.
