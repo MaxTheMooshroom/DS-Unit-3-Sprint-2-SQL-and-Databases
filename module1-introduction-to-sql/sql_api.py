@@ -1,3 +1,6 @@
+""" Written by MaxTheMooshroom! http://github.com/MaxTheMooshroom
+"""
+
 import sqlite3
 import pandas as pd
 
@@ -25,17 +28,23 @@ class Database:
         self.table_params[table_name] = df.columns
         return self
 
-    def query(self, query, close_q=True):
+    def query(self, input, close_q=True):
         """ perform raw execution on stored connection.
         """
         cursor = self.connection.cursor()
-        results = cursor.execute(query)
+        results = cursor.execute(input)
 
         if close_q is True:
             cursor.close()
 
         self.connection.commit()
         return results
+
+    def fetchall(self, input):
+        q = self.query(input, False)
+        result = q.fetchall()
+        q.close()
+        return result
 
     def create_table(self, name, args):
         """ 
@@ -78,6 +87,7 @@ class Database:
 
     def get_tables(self):
         """
+        DOES NOT WORK
         helper function to return list of tables in database.
         """
         #my_query = f'SELECT * FROM {}.INFORMATION_SCHEMA.TABLES;'
