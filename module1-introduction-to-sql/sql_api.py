@@ -20,21 +20,29 @@ class Database:
         self.open()
         
     def open(self):
+        """ open a connection using the file variable.
+        """
         self.connection = sqlite3.connect(self.file)
 
     def read_csv(self, dir, table_name):
+        """ read a csv file and save it as a table to this Database.
+        dir (string) - directory of the csv you're reading.
+        table_name (string) - the name of the table the csv will be saved as.
+        """
         df = pd.read_csv(dir)
         df.to_sql(table_name, self.connection)
         self.table_params[table_name] = df.columns
         return self
 
-    def query(self, input, close_q=True):
+    def query(self, input, close_c=True):
         """ perform raw execution on stored connection.
+        input (string) - the query to execute.
+        close_c (bool) - default: True. Whether to close the cursor or not
         """
         cursor = self.connection.cursor()
         results = cursor.execute(input)
 
-        if close_q is True:
+        if close_c is True:
             cursor.close()
 
         self.connection.commit()

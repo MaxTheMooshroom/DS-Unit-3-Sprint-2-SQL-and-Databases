@@ -120,7 +120,6 @@ container = []
 
 for i in range(2,8):
     col = [pos[i] for pos in results]
-    print(i, len(col))
     container.append(sum(col) / len(col))
 
 print('What are the average number of reviews for each category?\n' +
