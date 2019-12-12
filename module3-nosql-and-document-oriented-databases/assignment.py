@@ -14,9 +14,7 @@ url = f'mongodb+srv://{username}:{password}@cluster0-bq5e2.mongodb.net/test?retr
 
 
 client = pym.MongoClient(url)
-db = client['test-db']
-db.remove()
-db = client['test-db']
+db = client['rpg']
 
 rpg_cursor = rpg.cursor()
 table_data = rpg_cursor.execute(f'SELECT * FROM charactercreator_character;').fetchall()
