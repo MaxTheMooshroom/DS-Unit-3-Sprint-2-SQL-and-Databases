@@ -6,31 +6,19 @@ def road_length(island):
       if col == 'I': # if this cell is island
 
         # LEFT
-        if j != 0: # boundary check
-          if row[j-1] == 'W': # is neighbor water
-            length += 1 # add road
-        else: # map boundaries get roads
-          length += 1 # add road
+        if j == 0 or row[j-1] == 'W': # is neighbor water or a boundary?
+          length += 1
 
         # RIGHT
-        if j != (len(row) - 1): # boundary check
-          if row[j+1] == 'W': # is neighbor water
-            length += 1 # add road
-        else: # map boundaries get roads
-          length += 1 # add road
+        if j == (len(row) - 1) or row[j+1] == 'W': # is neighbor water or a boundary?
+          length += 1
 
         # UP
-        if i != 0: # boundary check
-          if island[i-1][j] == 'W': # is neighbor water
-            length += 1 # add road
-        else: # map boundaries get roads
+        if i == 0 or island[i-1][j] == 'W': # is neighbor water or a boundary?
           length += 1
 
         # DOWN
-        if i != (len(island) - 1): # boundary check
-          if island[i+1][j] == 'W': # is neighbor water
-            length += 1 # add road
-        else: # map boundaries get roads
+        if i == (len(island) - 1) or island[i+1][j] == 'W': # is neighbor water or a boundary?
           length += 1 # add road
 
   return length
