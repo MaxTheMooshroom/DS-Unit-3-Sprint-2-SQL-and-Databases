@@ -1,7 +1,7 @@
 def road_length(island):
   length = 0
   for i, row in enumerate(island):
-    for j, col in enumerate(row):
+    for j in range(len(row)):
 
       if col == 'I': # if this cell is island
 
