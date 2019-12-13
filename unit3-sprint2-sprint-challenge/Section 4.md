@@ -1,8 +1,8 @@
 ### In the Northwind database, what is the type of relationship between the "Employee" and "Territory" tables?
 
-A one-to-one table is a table that has one value for every key. Looking at the database layout, 
+A many-to-one table is a table that has many values for many each key. Looking at the database layout, 
 you can see that there is one territory id for each employee id. Given that, I'd say their relationship
-is one-to-one. 
+is many-to-one. 
 
 
 ### What is a situation where a document store (like MongoDB) is appropriate, and what is a situation where it is not appropriate?
