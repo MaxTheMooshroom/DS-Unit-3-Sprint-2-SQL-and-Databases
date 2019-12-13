@@ -32,7 +32,7 @@ print('\n\nWhat is the average age of an employee at the time of their hiring: '
 
 query = """SELECT Product.ProductName, Supplier.CompanyName
 FROM Product INNER JOIN Supplier ON Product.SupplierID = Supplier.Id
-;""" # ORDER BY Product.UnitPrice DESC
+ORDER BY Product.UnitPrice DESC;""" # 
 prods = cursor.execute(query).fetchall()[:10]
 
 print('\nWhat are the ten most expensive items (per unit price) in the database and their suppliers:')
